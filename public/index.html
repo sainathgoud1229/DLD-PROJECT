@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LED Rhythm Challenge — Digital Logic Music & Game Combo</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-left">
+      <img src="assets/logo.png" alt="Logo" class="logo">
+      <h1>LED Rhythm Challenge</h1>
+      <p class="tagline">Where digital logic meets rhythm — learn flip-flops, timing and sequencing while jamming.</p>
+      <div class="cta-row">
+        <button id="playDemo" class="btn primary">Play Demo</button>
+        <a class="btn outline" href="#about">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div id="ledStage" class="led-stage" aria-hidden="false"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section about">
+      <h2>What is this?</h2>
+      <p>LED Rhythm Challenge is a hands-on digital logic demo + interactive game. Users tap to match the beat; virtual LEDs light like a sequencer — each LED simulates a logic stage (flip-flops and gates).</p>
+      <div class="feature-cards">
+        <article><h3>Learn</h3><p>Short, visual explanations of counters, flip-flops and timing.</p></article>
+        <article><h3>Play</h3><p>Rhythm game with growing complexity and scoring.</p></article>
+        <article><h3>Share</h3><p>Submit score and view leaderboard — perfect for posters/booths.</p></article>
+      </div>
+    </section>
+
+    <section id="game" class="section game">
+      <h2>Play: LED Rhythm Game</h2>
+      <p class="muted">Tap/click in time with the lit LEDs. Precision scores higher.</p>
+      <div class="game-area">
+        <div id="ledRow" class="led-row" aria-hidden="false"></div>
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="submitScore" class="btn" disabled>Submit Score</button>
+          <input id="playerName" placeholder="Name for leaderboard" maxlength="20">
+          <span id="scoreDisplay">Score: 0</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="leaderboard" class="section leaderboard">
+      <h2>Leaderboard</h2>
+      <ol id="leaderList"></ol>
+
+    </section>
+
+   
+
+    <footer class="footer">
+      <small>Made with ♥ for the Digital Logic Design</small>
+    </footer>
+  </main>
+
+  <script src="js/game.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
