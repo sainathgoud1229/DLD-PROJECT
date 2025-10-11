@@ -1,5 +1,5 @@
 // game.js
-// Simple rhythm LED game logic with audio integration
+// Simple rhythm LED game logic with audio integration (desktop + mobile ready)
 
 window.Game = (function(){
   const LED_COUNT = 8;
@@ -33,6 +33,7 @@ window.Game = (function(){
   }
   const leds = ledRow.children;
 
+  // start/stop button
   startBtn.addEventListener('click', () => {
     if (!playing) startGame();
     else stopGame();
@@ -40,15 +41,22 @@ window.Game = (function(){
 
   submitBtn.addEventListener('click', submitScore);
 
-  // key listener
+  // desktop key listener
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
       e.preventDefault();
       registerHit();
     }
   });
-  // mobile tap
+
+  // mobile: tap on LED row counts as hit
   ledRow.addEventListener('click', registerHit);
+
+  // mobile: tap anywhere on screen to start/stop
+  window.addEventListener('touchstart', (e) => {
+    if (!playing) startGame();
+    else stopGame();
+  });
 
   function startGame(){
     playing = true;
@@ -72,7 +80,7 @@ window.Game = (function(){
     clearInterval(interval);
     startBtn.textContent = 'Start';
     submitBtn.disabled = false;
-    gameoverSound.play(); // play game over sound
+    gameoverSound.play();
   }
 
   function tick(){
@@ -81,10 +89,7 @@ window.Game = (function(){
       leds[i].style.opacity = beats[i] ? 0.9 : 0.45;
     }
     leds[position].classList.add('on');
-
-    // optional: play hihat sound every beat
     hihatSound.cloneNode().play();
-
     position = (position + 1) % LED_COUNT;
   }
 
@@ -97,10 +102,10 @@ window.Game = (function(){
 
     if (beats[prev]) {
       deltaScore = 100 + Math.floor(Math.random()*50);
-      kickSound.cloneNode().play(); // play kick when correct
+      kickSound.cloneNode().play();
     } else {
       deltaScore = -20;
-      failSound.cloneNode().play(); // play fail when wrong
+      failSound.cloneNode().play();
     }
 
     score = Math.max(0, score + deltaScore);
@@ -131,7 +136,7 @@ window.Game = (function(){
       }
       submitBtn.disabled = true;
     } catch (e) {
-      alert('Failed to submit score. If running locally, make sure the backend is running.');
+      alert('Failed to submit score. Make sure backend is running.');
     }
   }
 
