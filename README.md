@@ -41,14 +41,17 @@ This project is built using:
 | Utilities        | body-parser, cors, fs-extra |
 | Dev Tools        | nodemon                  |
 | Game Logic       | Custom LED rhythm code   |  
-:contentReference[oaicite:3]{index=3}
+
+
+## 🎯 Project Objective
+
+The objective of this project is to apply Digital Logic Design concepts in a practical and interactive way by building a rhythm-based LED game. It demonstrates how logic circuits can be used in real-world entertainment systems.
 
 ---
 
-## 🚀 How to Install
+ Developed By
 
-1. **Clone the repo:**
-   ```bash
-   git clone h
-   ttps://github.com/sainathgoud1229/DLD-PROJECT.git
+Sainath Goud  
+DLD Project Submission
+
    
